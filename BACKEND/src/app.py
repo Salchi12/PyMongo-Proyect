@@ -3,6 +3,8 @@ from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson import json_util
 from bson.objectid import ObjectId
+from flask_cors import CORS
+#descargar la libreria pip install -U flask-cors
 
 app = Flask(__name__)
 app.config['MONGO_URI']='mongodb://localhost/shop'
