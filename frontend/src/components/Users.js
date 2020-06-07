@@ -4,7 +4,7 @@ const API=process.env.REACT_APP_BACKEND;
 
 export const Users = () => {
     
-    const [name,setName] = useState('')
+    const [username,setName] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
 
@@ -17,7 +17,7 @@ export const Users = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name,
+                username,
                 email,
                 password
             })
@@ -32,7 +32,7 @@ export const Users = () => {
                     <div className="form-group">
                         <input type="text" 
                         onChange={e=>setName(e.target.value)} 
-                        value={name}
+                        value={username}
                         className="form-control"
                         placeholder="UserName"
                         autoFocus

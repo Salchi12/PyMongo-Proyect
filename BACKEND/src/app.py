@@ -3,10 +3,12 @@ from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson import json_util
 from bson.objectid import ObjectId
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['MONGO_URI']='mongodb://localhost/shop'
 mongo=PyMongo(app)
+CORS(app)
 
 @app.route('/user', methods=['POST'])
 def create_user():
@@ -14,7 +16,6 @@ def create_user():
     username=request.json['username']
     password=request.json['password']
     email=request.json['email']
-
     if username and email and password:
         hashed_password=generate_password_hash(password)
         id = mongo.db.users.insert(
